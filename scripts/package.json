@@ -1,0 +1,19 @@
+{
+  "name": "no.almli.publicholidays",
+  "version": "1.0.2",
+  "description": "Public holidays",
+  "main": "app.js",
+  "scripts": {
+    "create": "ts-node create.ts"
+  },
+  "author": "Bjørnar Almli",
+  "license": "ISC",
+  "dependencies": {
+    "date-holidays": "^3.10.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.12",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.4"
+  }
+}
