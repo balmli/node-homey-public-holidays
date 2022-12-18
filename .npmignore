@@ -3,6 +3,7 @@
 /.github
 /.idea
 /lib
+/scripts
 /tests
 /.editorconfig
 /.eslintrc.json
