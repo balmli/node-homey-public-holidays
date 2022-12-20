@@ -1,6 +1,6 @@
 {
   "name": "@balmli/homey-public-holidays",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Public holidays for Homey apps",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

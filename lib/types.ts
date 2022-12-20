@@ -11,6 +11,8 @@ export enum Condition {
     tomorrow = 'tomorrow',
 }
 
+export type HolidayTypes = { [key: string]: boolean }
+
 export interface Holiday {
     type: string,
     name: string,
