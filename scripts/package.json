@@ -9,7 +9,7 @@
   "author": "Bjørnar Almli",
   "license": "ISC",
   "dependencies": {
-    "date-holidays": "^3.10.0"
+    "date-holidays": "^3.23.16"
   },
   "devDependencies": {
     "@types/node": "^16.11.12",

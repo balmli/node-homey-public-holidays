@@ -1,7 +1,12 @@
 import Holidays from 'date-holidays';
 import {countries} from '../lib';
 
-console.log('export const holidays_list = {');
+/*
+npx ts-node create.ts > ../lib/holidays_list.ts
+ */
+
+console.log('import {Holidays} from "./types";\n');
+console.log('export const holidays_list: Holidays = {');
 countries.map(c => {
     let args = c.id.split('-');
     let hd;

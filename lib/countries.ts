@@ -214,5 +214,9 @@ export const countries: Countries = [
     {
         "id": "GB",
         "name": "United Kingdom"
+    },
+    {
+      "id": "US",
+      "name": "USA"
     }
 ];
