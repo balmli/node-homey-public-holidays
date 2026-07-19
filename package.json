@@ -1,6 +1,6 @@
 {
   "name": "@balmli/homey-public-holidays",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Public holidays for Homey apps",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -37,8 +37,7 @@
     "registry": "https://npm.pkg.github.com"
   },
   "license": "ISC",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/chai": "^4.3.0",
     "@types/mocha": "^9.1.1",
