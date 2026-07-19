@@ -50,7 +50,7 @@ The generator atomically replaces the generated file with data for the current y
 
 ## Automated Updates
 
-The `Update and publish holidays` GitHub Actions workflow runs on the first day of every month and can also be started manually. It updates `date-holidays`, regenerates the dataset, and, when anything changed:
+The `Update and publish holidays` GitHub Actions workflow runs on the first day of January, April, July, and October and can also be started manually. It updates `date-holidays`, regenerates the dataset, and, when anything changed:
 
 1. Bumps the package's patch version.
 2. Runs the test suite.
