@@ -1,12 +1,14 @@
 import Holidays from 'date-holidays';
-import {countries} from '../lib';
+import {renameSync, writeFileSync} from 'fs';
+import {resolve} from 'path';
+import {countries} from '../lib/countries';
 
-/*
-npx ts-node create.ts > ../lib/holidays_list.ts
- */
+const lines: string[] = [
+    'import {Holidays} from "./types";',
+    '',
+    'export const holidays_list: Holidays = {',
+];
 
-console.log('import {Holidays} from "./types";\n');
-console.log('export const holidays_list: Holidays = {');
 countries.map(c => {
     let args = c.id.split('-');
     let hd;
@@ -43,9 +45,18 @@ countries.map(c => {
                 .forEach(function (key) {
                     // @ts-ignore
                     let ho = result[key];
-                    console.log(`"${c.id}-${ho.date.substr(0, 10)}":{"type":"${ho.type}","name":"${ho.name}"},`);
+                    const holidayKey = `${c.id}-${ho.date.substr(0, 10)}`;
+                    lines.push(`${JSON.stringify(holidayKey)}:${JSON.stringify({type: ho.type, name: ho.name})},`);
                 });
         }
     }
 });
-console.log('};');
+lines.push('};', '');
+
+const outputFile = resolve(__dirname, '../lib/holidays_list.ts');
+const temporaryFile = `${outputFile}.tmp`;
+
+writeFileSync(temporaryFile, lines.join('\n'), 'utf8');
+renameSync(temporaryFile, outputFile);
+
+console.log(`Generated ${outputFile}`);

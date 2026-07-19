@@ -42,12 +42,22 @@ const yesterday = holidays.calcDate(new Date(), Condition.yesterday);
 The large `lib/holidays_list.ts` file is generated from `date-holidays`. To refresh it with the latest upstream data:
 
 ```bash
-cd scripts
-npm install         # skip if dependencies are already installed
-npm run create > ../lib/holidays_list.ts
+npm ci --prefix scripts # skip if dependencies are already installed
+npm run generate
 ```
 
-The generator outputs data for the current year and the next two years.
+The generator atomically replaces the generated file with data for the current year and the next two years.
+
+## Automated Updates
+
+The `Update and publish holidays` GitHub Actions workflow runs on the first day of every month and can also be started manually. It updates `date-holidays`, regenerates the dataset, and, when anything changed:
+
+1. Bumps the package's patch version.
+2. Runs the test suite.
+3. Commits the generated data and lockfile changes to `main`.
+4. Publishes the new version to GitHub Packages.
+
+The workflow uses the repository's automatically provided `GITHUB_TOKEN`; no npm token secret is required.
 
 ## Development
 - `npm run build`: compile the TypeScript sources to `dist/`.

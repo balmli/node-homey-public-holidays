@@ -16,11 +16,9 @@
 
 ## Regenerating Holiday Data
 - The large `lib/holidays_list.ts` file is generated, not hand edited.
-- To refresh it, run the generator inside the `scripts` workspace:
-  1. `cd scripts`
-  2. `npm install` (once, or when dependencies change)
-  3. `npm run create > ../lib/holidays_list.ts`
-- The command streams JSON-like TypeScript to stdout, so redirecting the output back into `lib/holidays_list.ts` keeps the data current.
+- Install generator dependencies with `npm ci --prefix scripts`.
+- Refresh it from the repository root with `npm run generate`.
+- The generator writes to a temporary file and atomically replaces `lib/holidays_list.ts` after generation succeeds.
 
 ## Notable Files
 - `lib/holidays.ts`: Calculates offsets and checks whether a given date is a holiday by reading from the generated list.

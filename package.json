@@ -1,6 +1,6 @@
 {
   "name": "@balmli/homey-public-holidays",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Public holidays for Homey apps",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,6 +9,7 @@
     "node": ">=16.0.0"
   },
   "scripts": {
+    "generate": "npm --prefix scripts run create",
     "prebuild": "del dist/",
     "build": "tsc",
     "watch": "tsc -w",
@@ -29,6 +30,12 @@
     "url": "https://github.com/balmli/node-homey-public-holidays/issues"
   },
   "homepage": "https://github.com/balmli/node-homey-public-holidays#readme",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "license": "ISC",
   "dependencies": {
   },
